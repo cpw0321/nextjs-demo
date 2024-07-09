@@ -14,23 +14,37 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## create-next-app
+```bash
+// 创建项目
+npx create-next-app demo
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## prisma使用
+```bash
+# 初始化数据库
+npx prisma init --datasource-provider sqlite
 
-## Learn More
+# 创建本地数据库
+npx prisma db push
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 样式
+可以使用tailwindcss/style/less
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 问题
+### 1. 无法处理less
+解决：
+```bash
+npm install next-plugin-antd-less --dev
+```
+在 next.config.mjs 中添加
+```js
+import withAntdLess from 'next-plugin-antd-less';
+export default withAntdLess(nextConfig);
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### 2. 存储token
+要实现token存储，可参考：
+https://github.com/shi-gui/react-admin-template/blob/master/src/utils/store.ts
