@@ -30,9 +30,6 @@ npx prisma init --datasource-provider sqlite
 npx prisma db push
 ```
 
-## action
-参考：https://github.com/actions/starter-workflows/blob/main/pages/nextjs.yml
-
 ## 样式
 可以使用tailwindcss/style/less
 
